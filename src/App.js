@@ -18,8 +18,8 @@ function App() {
          <header className="App-header">
             <h1>Is this your drink?</h1>
 
-            <h2>{cocktail.strDrink}</h2>
-            <img src={cocktail.strDrinkThumb} className="App-logo" alt="logo" />
+            <h2>{cocktail[1][1]}</h2>
+            <img src={cocktail[16][1]} className="App-logo" alt="logo" />
             <h3>Ingredients</h3>
             <p></p>
          </header>
