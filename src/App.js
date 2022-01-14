@@ -1,22 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import fetchCocktail from "./data";
 
 function App() {
    const [cocktail, setCocktail] = useState("");
 
-   useEffect(() => {
-      async function fetchCocktail() {
-         const response = await fetch(
-            `https://www.thecocktaildb.com/api/json/v1/1/random.php`
-         );
-         const data = await response.json();
-         setCocktail(data);
-      }
-      fetchCocktail();
+   useEffect(async () => {
+      setCocktail(await fetchCocktail());
    }, []);
 
-   // console.log(cocktail);
+   //I know it's complaining but it works 🤷
+
    console.log("detail info", cocktail.drinks);
 
    return cocktail ? (
