@@ -23,6 +23,8 @@ function App() {
       <div className="App">
          <header className="App-header">
             <h1>Is this your drink?</h1>
+
+            <h2>{cocktail.drinks[0].strDrink}</h2>
             <img
                src={cocktail.drinks[0].strDrinkThumb}
                className="App-logo"

@@ -15,6 +15,9 @@ let ingredients = [
 
 returns: li for each ingredient
 
+
+
+
 */
 
 function IngredientList({ strIngredient1, strIngredient2 }) {
