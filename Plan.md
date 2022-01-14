@@ -16,7 +16,7 @@ Realistic
 
 MVP
 
--Display one random cocktail with ingredients on page reload.
+-Display one random cocktail **with ingredients** on page reload. 
 -Have very basic front end.
 
 PLAN
