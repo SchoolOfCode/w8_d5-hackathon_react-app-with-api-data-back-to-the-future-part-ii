@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import fetchCocktail from "./data";
 
 function App() {
-  return (
+  const [cocktail, setCocktail] = useState("");
+
+  useEffect(async () => {
+    setCocktail(await fetchCocktail());
+  }, []);
+
+  //I know it's complaining but it works 🤷
+
+  // console.log("detail info", cocktail.drinks);
+
+  return cocktail ? (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Is this your drink?</h1>
+
+        <h2>{cocktail[1][1]}</h2>
+        <img src={cocktail[16][1]} className="App-logo" alt="logo" />
+        <h3>Ingredients</h3>
+
+        <p></p>
       </header>
     </div>
+  ) : (
+    <></>
   );
 }
 
