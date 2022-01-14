@@ -4,11 +4,19 @@ async function fetchCocktail() {
    );
    const data = await response.json();
    const cocktail = await Object.entries(data.drinks[0]);
-
+   const listOfIngredients = [];
+   for (const key in Object.keys(cocktail)) {
+      if (parseInt(key) >= 17 && parseInt(key) <= 31) {
+         listOfIngredients.push(cocktail[key][1]);
+         console.log("key", key);
+      }
+   }
+   console.log(listOfIngredients);
    // const entries = Object.entries(cocktail);
    // const key = Object.keys(cocktail);
 
    console.log("data", cocktail);
+
    // console.log("ingredient", cocktail.strIngredient1);
    // console.log("measurement", cocktail.strMeasure1);
    // console.log("object.entries log", entries);
