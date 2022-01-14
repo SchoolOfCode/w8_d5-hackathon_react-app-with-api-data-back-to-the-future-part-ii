@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  return (
+  const [cocktail, setCocktail] = useState("");
+
+  useEffect(() => {
+    async function fetchCocktail() {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+      );
+      const data = await response.json();
+      setCocktail(data);
+    }
+    fetchCocktail();
+  }, []);
+
+  console.log(cocktail);
+  console.log("detail info", cocktail.drinks);
+
+  return cocktail ? (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img
+          src={cocktail.drinks[0].strDrinkThumb}
+          className="App-logo"
+          alt="logo"
+        />
+        <p>Is this your drink?</p>
       </header>
     </div>
+  ) : (
+    <></>
   );
 }
 
