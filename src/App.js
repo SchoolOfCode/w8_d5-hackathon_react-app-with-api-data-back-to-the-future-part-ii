@@ -11,19 +11,15 @@ function App() {
 
    //I know it's complaining but it works 🤷
 
-   console.log("detail info", cocktail.drinks);
+   // console.log("detail info", cocktail.drinks);
 
    return cocktail ? (
       <div className="App">
          <header className="App-header">
             <h1>Is this your drink?</h1>
 
-            <h2>{cocktail.drinks[0].strDrink}</h2>
-            <img
-               src={cocktail.drinks[0].strDrinkThumb}
-               className="App-logo"
-               alt="logo"
-            />
+            <h2>{cocktail.strDrink}</h2>
+            <img src={cocktail.strDrinkThumb} className="App-logo" alt="logo" />
             <h3>Ingredients</h3>
             <p></p>
          </header>
